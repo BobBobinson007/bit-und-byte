@@ -88,7 +88,7 @@ except ImportError as e:
 # ============================================================
 
 CONFIG = {
-    'repo_url': 'https://github.com/Bob-Bobinson/bit-und-byte.git',
+    'repo_url': 'https://github.com/BobBobinson007/bit-und-byte.git',
     'repo_branch': 'main',
     'pdf_dir': BASE_DIR / 'pdf',
     'docs_dir': BASE_DIR / 'docs',
