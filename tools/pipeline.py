@@ -90,7 +90,7 @@ except ImportError as e:
 CONFIG = {
     'repo_url': 'https://github.com/BobBobinson007/bit-und-byte.git',
     'repo_branch': 'main',
-    'pdf_dir': BASE_DIR / 'pdf',
+    'pdf_dir': BASE_DIR / 'docs' / 'pdf',
     'docs_dir': BASE_DIR / 'docs',
     'articles_dir': BASE_DIR / 'articles',
     'author': 'Bit & Byte Automation',

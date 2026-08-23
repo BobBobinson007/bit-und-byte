@@ -21,8 +21,8 @@ class BitBytePDF(FPDF):
 
     def _setup_fonts(self):
         """Dejavu wird mit fpdf2 mitgeliefert – perfekt für Minimalismus."""
-        self.add_font('DejaVu', '', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', uni=True)
-        self.add_font('DejaVu', 'B', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', uni=True)
+        self.add_font('DejaVu', '', '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf')
+        self.add_font('DejaVu', 'B', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf')
 
     def header(self):
         if self.page_no() == 1:
@@ -206,7 +206,7 @@ def create_hello_world_pdf():
         issue_title='Hello World! 👋',
         issue_date='August 2026 · Beispielausgabe',
         articles=articles,
-        output_path='/home/ansible/bit-und-byte/pdf/Bit_Byte_Woche_Hello_World.pdf'
+        output_path='/home/ansible/bit-und-byte/docs/pdf/Bit_Byte_Woche_Hello_World.pdf'
     )
     pdf.generate()
     print(f'✅ PDF erstellt: {pdf.output_path}')
