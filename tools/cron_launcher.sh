@@ -2,38 +2,51 @@
 # ============================================================
 # BIT & BYTE – CRON PIPELINE LAUNCHER
 # ============================================================
-# Wird jeden Samstag um 8:00 Uhr von OpenClaw Cron aufgerufen.
+# Wird jeden Samstag um 8:00 Uhr MEZ von OpenClaw Cron aufgerufen.
 #
-# Was passiert:
-#   1. Deep Research (OpenClaw Sessions)
-#   2. Artikel schreiben
-#   3. Review
-#   4. PDF generieren
-#   5. GitHub Pages aktualisieren
-#   6. Git Push
-#   7. PDF an Chat senden
+# HAUPTLOOP (OpenClaw-gesteuert, im Cron-Prompt definiert):
+#   Phase 1: Deep Research (web_search × 36 Runden)
+#   Phase 2: Artikel schreiben
+#   Phase 3: Review / Fake-News-Check
+#   Phase 4: PDF generieren (python3 tools/pdf_generator.py)
+#   Phase 5: GitHub Pages aktualisieren
+#   Phase 6: Git Push
+#   Phase 7: PDF an Telegram senden
+#
+# Dieses Script wird VOR der Pipeline ausgeführt,
+# um die Umgebung vorzubereiten.
 # ============================================================
 
 BASE_DIR="/home/ansible/bit-und-byte"
 LOG_FILE="$BASE_DIR/pipeline.log"
+TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S %Z')
 
 # Logging
-echo "========================================" >> "$LOG_FILE"
-echo "🕐 $(date '+%Y-%m-%d %H:%M:%S') – Pipeline gestartet" >> "$LOG_FILE"
+mkdir -p "$BASE_DIR"
 
-# 1. In das Projekt-Verzeichnis wechseln
-cd "$BASE_DIR" || {
-    echo "❌ Konnte nicht nach $BASE_DIR wechseln" >> "$LOG_FILE"
-    exit 1
-}
+{
+  echo "========================================"
+  echo "🕐 $TIMESTAMP – CRON LAUNCHER"
+  echo "========================================"
+  echo "BASE_DIR: $BASE_DIR"
+  
+  # In Projektverzeichnis wechseln
+  cd "$BASE_DIR" || { echo "❌ FEHLER: $BASE_DIR nicht gefunden"; exit 1; }
 
-# 2. GitHub-Status prüfen
-git remote -v >> "$LOG_FILE" 2>&1
-git fetch origin >> "$LOG_FILE" 2>&1
+  # Git-Status prüfen
+  echo "📡 Git Status:"
+  git remote -v 2>&1
+  git fetch origin 2>&1
+  echo "Branch: $(git branch --show-current 2>/dev/null)"
 
-# 3. Hello-World generieren (für den ersten Test)
-#    In der Produktion wird hier die volle Pipeline ausgeführt
-python3 tools/pipeline.py --hello-world 2>&1 >> "$LOG_FILE"
+  # Prüfe, ob Python-Module verfügbar sind
+  echo "🐍 Python-Check:"
+  python3 -c "from fpdf import FPDF; print('✅ fpdf2 verfügbar')" 2>&1
+  python3 -c "from tools import memory; print('✅ Memory-Modul verfügbar')" 2>&1
 
-echo "✅ $(date '+%Y-%m-%d %H:%M:%S') – Pipeline beendet" >> "$LOG_FILE"
-echo "" >> "$LOG_FILE"
+  echo ""
+  echo "✅ Cron-Launcher bereit. OpenClaw übernimmt jetzt die Pipeline."
+  echo "========================================"
+  echo ""
+
+} >> "$LOG_FILE" 2>&1
