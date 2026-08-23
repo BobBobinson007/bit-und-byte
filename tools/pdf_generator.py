@@ -1,10 +1,7 @@
 #!/usr/bin/env python3
 """
-Bit & Byte – PDF Generator (Kachel-Design)
-Erzeugt eine minimalistische, KACHEL-basierte PDF-Zeitung mit fpdf2.
-Keine Quellen im PDF – nur auf der GitHub-Pages-Seite.
-
-Design: Kacheln (Cards) pro Artikel, hoher Kontrast, grüne Akzente
+Bit & Byte – PDF Generator (Papiersparendes Kachel-Design)
+Weißer Hintergrund, schwarzer Text, kompakt, Kacheln mit dünnen Rahmen.
 """
 
 from fpdf import FPDF
@@ -12,38 +9,28 @@ from datetime import datetime
 import os
 import textwrap
 
-# ── Farbpalette ──────────────────────────────────────────────
-GREEN_PRIMARY   = (15, 157, 88)    # Kräftiges Grün
-GREEN_DARK      = (10, 110, 60)    # Dunkelgrün
-GREEN_LIGHT     = (220, 245, 230)  # Hellgrün (Hintergrund)
-DARK_BG         = (28, 28, 30)     # Fast-Schwarz
-DARK_CARD       = (38, 38, 42)     # Karten-Hintergrund
-DARK_SECONDARY  = (48, 48, 52)     # Leicht heller
-TEXT_WHITE       = (240, 240, 245) # Heller Text
-TEXT_MUTED       = (160, 160, 170) # Gedämpfter Text
+# ── Farbreduzierte Palette ───────────────────────────────────
+GREEN       = (34, 139, 34)   # ForestGreen für Akzente
+GREEN_LIGHT = (230, 245, 230) # Hellgrün für Card-Hintergrund
+DARK_GRAY   = (60, 60, 60)    # Textfarbe (fast schwarz)
+GRAY        = (140, 140, 140) # Meta-Infos
+LIGHT_GRAY  = (235, 235, 235) # Card-Rahmen/Hintergrund
+WHITE       = (255, 255, 255)
+BLACK       = (30, 30, 30)
+
 CAT_COLORS = {
-    'KI': (0, 120, 200),
-    'GitHub': (200, 120, 0),
-    'Distro': (200, 80, 0),
-    'Hack': (200, 30, 30),
-    'Sicherheit': (0, 150, 150),
-    'Wie funktioniert': (120, 80, 200),
-    'Docker': (0, 150, 200),
-    'iOS': (100, 100, 100),
-    'Mythen': (200, 100, 0),
-    'Messen': (150, 0, 150),
-    'Weltall': (0, 80, 180),
-    'Studie': (180, 60, 120),
-    'Deep Dive': (15, 157, 88),
-    'Editorial': (80, 80, 80),
+    'ki': (0, 90, 180), 'github': (180, 100, 0), 'distro': (180, 70, 0),
+    'hack': (180, 20, 20), 'sicherheit': (0, 120, 120), 'wie funktioniert': (100, 60, 180),
+    'docker': (0, 120, 180), 'ios': (90, 90, 90), 'mythen': (180, 90, 0),
+    'messen': (130, 0, 130), 'weltall': (0, 60, 150), 'studie': (150, 40, 100),
+    'deep': (34, 139, 34), 'editorial': (80, 80, 80),
 }
 
 def get_cat_color(category):
-    """Wählt Farbe basierend auf Kategorie-Name."""
     for key, color in CAT_COLORS.items():
-        if key.lower() in category.lower():
+        if key in category.lower():
             return color
-    return GREEN_PRIMARY  # Fallback
+    return GREEN
 
 
 class BitBytePDF(FPDF):
@@ -60,213 +47,177 @@ class BitBytePDF(FPDF):
         self.add_font('DejaVu', 'B', '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf')
 
     def header(self):
-        pass  # Custom per page
+        pass
 
     def footer(self):
-        self.set_y(-15)
+        self.set_y(-12)
         self.set_font('DejaVu', '', 7)
-        self.set_text_color(*TEXT_MUTED)
-        self.cell(0, 10, f'Bit & Byte – {self.issue_title} | Seite {self.page_no()}/{{nb}}', align='C')
+        self.set_text_color(*GRAY)
+        self.cell(0, 8, f'Bit & Byte – {self.issue_title} | S. {self.page_no()}/{{nb}}', align='C')
 
-    def _draw_category_badge(self, category, x, y, w):
-        """Kategorie-Badge als farbigen Kasten."""
-        color = get_cat_color(category)
-        self.set_fill_color(*color)
-        self.set_draw_color(*color)
-        badge_w = self.get_string_width(category) + 6
-        self.rect(x, y, min(badge_w, w - 4), 5.5, style='F')
-        self.set_xy(x + 3, y + 0.5)
-        self.set_font('DejaVu', 'B', 7)
-        self.set_text_color(255, 255, 255)
-        self.cell(min(badge_w - 6, w - 10), 4.5, category[:30])
-        return y + 7
-
-    def _draw_card_header(self, title, category, x, y, w):
-        """Zeichnet den oberen Teil einer Karte mit Badge + Titel."""
-        y = self._draw_category_badge(category, x + 4, y + 3, w)
-
-        # Titel
-        self.set_xy(x + 4, y + 2)
-        self.set_font('DejaVu', 'B', 12)
-        self.set_text_color(*TEXT_WHITE)
-        # Titel wrappen
-        wrapped = textwrap.fill(title, width=55)
-        self.multi_cell(w - 8, 6, wrapped)
-        return self.get_y()
+    def _badge_w(self, category):
+        return self.get_string_width(category) + 5
 
     def generate(self):
         self.alias_nb_pages()
-        self.set_auto_page_break(True, 20)
+        self.set_auto_page_break(True, 15)
+        self.set_margins(12, 10, 12)
 
-        # ═══════════════════ TITELSEITE ═══════════════════════
+        # ═══════════════ TITELSEITE ═══════════════════════════
         self.add_page()
-        # Hintergrund – dunkel
-        self.set_fill_color(*DARK_BG)
+        self.set_fill_color(*WHITE)
         self.rect(0, 0, 210, 297, style='F')
 
-        # Header-Linie oben (grün)
-        self.set_fill_color(*GREEN_PRIMARY)
-        self.rect(0, 0, 210, 3, style='F')
+        # Grüner Strich oben
+        self.set_fill_color(*GREEN)
+        self.rect(0, 0, 210, 2.5, style='F')
+
+        self.ln(30)
 
         # Titel
-        self.ln(55)
-        self.set_font('DejaVu', 'B', 44)
-        self.set_text_color(*GREEN_PRIMARY)
-        self.cell(0, 18, 'Bit & Byte', align='C', new_x="LMARGIN", new_y="NEXT")
-        self.ln(4)
+        self.set_font('DejaVu', 'B', 32)
+        self.set_text_color(*BLACK)
+        self.cell(0, 14, 'Bit & Byte', align='C', new_x="LMARGIN", new_y="NEXT")
+        self.ln(2)
         self.set_font('DejaVu', '', 10)
-        self.set_text_color(*TEXT_MUTED)
-        self.cell(0, 8, 'Wöchentliche Tech-Zeitung', align='C', new_x="LMARGIN", new_y="NEXT")
-        self.ln(15)
+        self.set_text_color(*GRAY)
+        self.cell(0, 6, 'Wöchentliche Tech-Zeitung', align='C', new_x="LMARGIN", new_y="NEXT")
+        self.ln(4)
+        self.set_draw_color(*GREEN)
+        self.set_line_width(0.3)
+        self.line(60, self.get_y(), 150, self.get_y())
+        self.ln(8)
 
-        # Ausgabe-Box
-        card_x = 25
-        card_w = 160
-        card_y = self.get_y()
-        self.set_fill_color(*DARK_CARD)
-        self.rect(card_x, card_y, card_w, 30, style='F')
-        # Grüner Rand links
-        self.set_fill_color(*GREEN_PRIMARY)
-        self.rect(card_x, card_y, 3, 30, style='F')
+        # Ausgabe-Kachel
+        cx, cw = 25, 160
+        self.set_fill_color(*LIGHT_GRAY)
+        self.set_draw_color(*GREEN)
+        self.rect(cx, self.get_y(), cw, 22, style='DF')
 
-        self.set_xy(card_x + 12, card_y + 5)
+        self.set_xy(cx + 10, self.get_y() + 4)
         self.set_font('DejaVu', 'B', 13)
-        self.set_text_color(*TEXT_WHITE)
-        self.cell(0, 7, self.issue_title, new_x="LMARGIN", new_y="NEXT")
-        self.set_xy(card_x + 12, card_y + 15)
+        self.set_text_color(*BLACK)
+        self.cell(140, 6, self.issue_title, new_x="LMARGIN", new_y="NEXT")
+        self.set_xy(cx + 10, self.get_y() + 4)
         self.set_font('DejaVu', '', 9)
-        self.set_text_color(*TEXT_MUTED)
-        self.cell(0, 7, f'Ausgabe vom {self.issue_date}', new_x="LMARGIN", new_y="NEXT")
+        self.set_text_color(*GRAY)
+        self.cell(140, 6, f'Erschienen: {self.issue_date}', new_x="LMARGIN", new_y="NEXT")
+        self.ln(5)
 
-        self.set_y(card_y + 40)
+        self.set_y(self.get_y() + 3)
 
-        # Kategorie-Leiste (Card-ähnlich)
-        cat_y = self.get_y()
-        self.set_fill_color(*DARK_CARD)
-        self.rect(card_x, cat_y, card_w, 50, style='F')
-        self.set_fill_color(*GREEN_DARK)
-        self.rect(card_x, cat_y, 3, 50, style='F')
-
+        # Kategorien (kompakt, 2-spaltig)
         categories = [a.get('category', '') for a in self.articles if a.get('category')]
         col1 = categories[::2]
         col2 = categories[1::2]
 
-        self.set_xy(card_x + 12, cat_y + 5)
         self.set_font('DejaVu', 'B', 8)
-        self.set_text_color(*TEXT_MUTED)
-        self.cell(0, 5, 'DIESE AUSGABE:', new_x="LMARGIN", new_y="NEXT")
+        self.set_text_color(*GRAY)
+        self.cell(0, 5, 'THEMEN DIESER AUSGABE:', new_x="LMARGIN", new_y="NEXT")
+        self.ln(2)
 
-        self.set_font('DejaVu', '', 8)
-        self.set_text_color(*TEXT_WHITE)
-        for i in range(max(len(col1), len(col2))):
+        self.set_font('DejaVu', '', 8.5)
+        max_rows = max(len(col1), len(col2))
+        for i in range(max_rows):
+            y = self.get_y()
             if i < len(col1):
-                self.set_xy(card_x + 12, cat_y + 12 + i * 6)
-                # Badge-Punkt
                 self.set_fill_color(*get_cat_color(col1[i]))
-                self.circle(self.get_x() + 2, self.get_y() + 2.5, 1.5, style='F')
-                self.set_xy(card_x + 18, cat_y + 12 + i * 6)
-                self.cell(65, 6, col1[i][:35])
+                self.rect(25, y + 1, 3, 5, style='F')
+                self.set_xy(31, y)
+                self.set_text_color(*DARK_GRAY)
+                self.cell(75, 7, col1[i][:40])
             if i < len(col2):
-                self.set_xy(card_x + 85, cat_y + 12 + i * 6)
                 self.set_fill_color(*get_cat_color(col2[i]))
-                self.circle(self.get_x() + 2, self.get_y() + 2.5, 1.5, style='F')
-                self.set_xy(card_x + 91, cat_y + 12 + i * 6)
-                self.cell(65, 6, col2[i][:35])
+                self.rect(105, y + 1, 3, 5, style='F')
+                self.set_xy(111, y)
+                self.set_text_color(*DARK_GRAY)
+                self.cell(75, 7, col2[i][:40])
+            self.set_y(y + 6)
 
-        self.set_y(cat_y + 70)
-
-        # Footer-Text auf Titelseite
+        self.ln(8)
         self.set_font('DejaVu', '', 7)
-        self.set_text_color(*TEXT_MUTED)
-        self.cell(0, 5, 'Quellen auf GitHub: https://github.com/BobBobinson007/bit-und-byte', align='C', new_x="LMARGIN", new_y="NEXT")
-        self.cell(0, 5, 'PDF generiert am ' + datetime.now().strftime('%d.%m.%Y %H:%M UTC'), align='C')
+        self.set_text_color(*GRAY)
+        self.cell(0, 4, 'Quellen: https://bobbobinson007.github.io/bit-und-byte/', align='C')
 
-        # ═══════════════════ ARTIKELSEITEN (KACHELN) ══════════════════
-        for i, article in enumerate(self.articles):
+        # ═══════════════ ARTIKEL-KACHELN ══════════════════════
+        for article in self.articles:
             self.add_page()
-            self.render_article_card(article, i)
+            self.render_card(article)
 
         self.output(self.output_path)
-        print(f'✅ PDF erstellt: {self.output_path}')
+        print(f'✅ PDF erstellt: {self.output_path} ({os.path.getsize(self.output_path)/1024:.1f} KB)')
         return self.output_path
 
-    def render_article_card(self, article, idx):
-        """Zeichnet einen Artikel als Kachel/Card."""
+    def render_card(self, article):
         title = article.get('title', '')
         body = article.get('body', '')
         category = article.get('category', '')
 
-        # Hintergrund – dunkel
-        self.set_fill_color(*DARK_BG)
+        # Weißer Hintergrund
+        self.set_fill_color(*WHITE)
         self.rect(0, 0, 210, 297, style='F')
 
-        # Grüne Linie oben
-        self.set_fill_color(*GREEN_PRIMARY)
-        self.rect(0, 0, 210, 2.5, style='F')
+        # Grüner Strich oben
+        self.set_fill_color(*GREEN)
+        self.rect(0, 0, 210, 2, style='F')
 
-        # ─── Kategorie-Leiste ───
-        self.set_fill_color(*DARK_SECONDARY)
-        self.rect(10, 10, 190, 10, style='F')
+        # ─── Kategorie-Badge oben ───
         color = get_cat_color(category)
         self.set_fill_color(*color)
-        self.rect(10, 10, 4, 10, style='F')
+        badge_w = min(self._badge_w(category) + 6, 80)
+        self.rect(12, 8, badge_w, 6, style='F')
+        self.set_xy(15, 8.5)
+        self.set_font('DejaVu', 'B', 7)
+        self.set_text_color(*WHITE)
+        self.cell(badge_w - 6, 5, category[:40])
 
-        self.set_xy(20, 12)
-        self.set_font('DejaVu', 'B', 8)
-        self.set_text_color(*color)
-        self.cell(170, 6, f'  {category}', align='L')
+        # ─── Kachel-Card ───
+        card_x = 12
+        card_y = 18
+        card_w = 186
 
-        # ─── Artikel-Kachel ───
-        card_y = 25
-        card_h = 260  # Maximale Höhe, wird dynamisch
+        # Hintergrund der Kachel
+        self.set_fill_color(248, 248, 250)
+        self.set_draw_color(210, 210, 215)
+        self.rect(card_x, card_y, card_w, 268, style='DF')
 
-        # Kachel-Hintergrund
-        self.set_fill_color(*DARK_CARD)
-        self.set_draw_color(*DARK_SECONDARY)
-        self.rect(10, card_y, 190, card_h, style='F', round_corners=True)
         # Grüner Rand links
-        self.set_fill_color(*GREEN_DARK)
-        self.rect(10, card_y, 2.5, card_h, style='F')
+        self.set_fill_color(*GREEN)
+        self.rect(card_x, card_y, 2.5, 268, style='F')
 
-        # ─── Titel in der Kachel ───
-        inner_x = 22
-        inner_w = 168
+        # ─── Titel ───
+        inner_x = card_x + 10
+        inner_w = card_w - 16
 
-        self.set_xy(inner_x, card_y + 8)
-        self.set_font('DejaVu', 'B', 14)
-        self.set_text_color(*TEXT_WHITE)
-        self.multi_cell(inner_w, 7.5, title)
-        current_y = self.get_y() + 2
+        self.set_xy(inner_x, card_y + 7)
+        self.set_font('DejaVu', 'B', 13)
+        self.set_text_color(*BLACK)
+        self.multi_cell(inner_w, 7, title)
+        y = self.get_y() + 1
 
-        # Trennlinie
-        self.set_draw_color(*DARK_SECONDARY)
-        self.line(inner_x, current_y, inner_x + inner_w - 6, current_y)
-        current_y += 5
+        # Dünne Trennlinie
+        self.set_draw_color(200, 200, 205)
+        self.line(inner_x, y, inner_x + inner_w - 4, y)
+        y += 4
 
-        # ─── Body in der Kachel ───
-        self.set_xy(inner_x, current_y)
+        # ─── Body (kompakt, papiersparend) ───
+        self.set_xy(inner_x, y)
         self.set_font('DejaVu', '', 9)
-        self.set_text_color(*TEXT_WHITE)
+        self.set_text_color(*DARK_GRAY)
 
         for paragraph in body.split('\n\n'):
-            paragraph = paragraph.strip()
-            if not paragraph:
+            para = paragraph.strip()
+            if not para:
                 continue
-            wrapped = textwrap.fill(paragraph, width=75)
+            wrapped = textwrap.fill(para, width=80)
             self.set_x(inner_x)
-            self.multi_cell(inner_w - 4, 5, wrapped)
-            self.ln(1.5)
-
-            if self.get_y() > 265:
+            self.multi_cell(inner_w - 2, 4.8, wrapped)
+            self.ln(1.2)
+            if self.get_y() > 275:
                 break
-
-    def circle(self, x, y, r, style=''):
-        """Hilfsfunktion für kleine Punkte."""
-        self.ellipse(x - r, y - r, r * 2, r * 2, style=style)
 
 
 def create_hello_world_pdf():
-    """Erzeugt die Hello-World-Beispiel-PDF im neuen Kachel-Design."""
     articles = [
         {
             'title': 'Willkommen bei Bit & Byte!',
@@ -309,11 +260,12 @@ def create_hello_world_pdf():
                 'Wayland, ein neues Firmware-Update-Tool und die Integration '
                 'von TPM-basierter Festplattenverschlüsselung.\n\n'
                 'Mit 12 Jahren Support ist Ubuntu 24.04 LTS eine der '
-                'langlebigsten Distributionen.'
+                'langlebigsten Distributionen und eignet sich perfekt für '
+                'Server und Workstations.'
             )
         },
         {
-            'title': 'Sicherheitslücke einfach erklärt: CVE-2024-xxx',
+            'title': 'Sicherheitslücke einfach erklärt',
             'category': '🔒 Sicherheitslücke',
             'body': (
                 'Jede Woche werden Dutzende Sicherheitslücken gemeldet. '
@@ -323,17 +275,16 @@ def create_hello_world_pdf():
                 'Eine Sicherheitslücke ist wie ein Trick, mit dem jemand '
                 'dieses Schloss öffnen kann, ohne den richtigen Schlüssel '
                 'zu haben.\n\n'
-                'In dieser Woche geht es um eine Schwachstelle in XYZ, '
-                'die es Angreifern ermöglicht, Code aus der Ferne '
-                'auszuführen. Der Hersteller hat bereits einen Patch '
-                'veröffentlicht.'
+                'In dieser Woche geht es um eine Schwachstelle, die es '
+                'Angreifern ermöglicht, Code aus der Ferne auszuführen. '
+                'Der Hersteller hat bereits einen Patch veröffentlicht.'
             )
         },
     ]
 
     pdf = BitBytePDF(
         issue_title='Hello World!',
-        issue_date='August 2026 · Beispielausgabe',
+        issue_date='August 2026',
         articles=articles,
         output_path='/home/ansible/bit-und-byte/docs/pdf/Bit_Byte_Woche_Hello_World.pdf'
     )
