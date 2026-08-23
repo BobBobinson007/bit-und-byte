@@ -6,26 +6,75 @@
     <title>Bit & Byte – Hello World (Beispielausgabe)</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f5f5; color: #1a1a1a; line-height: 1.6; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #1c1c1e;
+            color: #f0f0f5;
+            line-height: 1.6;
+        }
         .container { max-width: 800px; margin: 0 auto; padding: 2rem; }
-        .back { margin-bottom: 1rem; display: inline-block; color: #00c853; text-decoration: none; font-size: 0.9rem; }
-        .back:hover { text-decoration: underline; }
-        .article { background: #fff; border-radius: 12px; padding: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
-        .article h1 { font-size: 2rem; margin-bottom: 0.3rem; }
-        .article .meta { color: #999; font-size: 0.9rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 2px solid #00c853; }
-        .article h2 { margin: 1.5rem 0 0.8rem; font-size: 1.3rem; color: #333; }
-        .article p { margin-bottom: 1rem; color: #444; }
-        .article .sources { margin-top: 2rem; padding-top: 1rem; border-top: 2px solid #00c853; }
-        .article .sources h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: #333; }
-        .article .source-item { padding: 0.5rem 0; border-bottom: 1px solid #eee; font-size: 0.9rem; }
-        .article .source-item:last-child { border-bottom: none; }
-        .article .source-item a { color: #00c853; text-decoration: none; }
-        .article .source-item a:hover { text-decoration: underline; }
-        .article .source-item .citation { color: #888; font-size: 0.85rem; margin-top: 0.2rem; }
-        .article .media-link { display: inline-block; background: #e8f5e9; padding: 0.4rem 0.8rem; border-radius: 6px; color: #2e7d32; text-decoration: none; font-size: 0.85rem; margin: 0.3rem 0; }
-        .article .media-link:hover { background: #c8e6c9; }
-        img { max-width: 100%; border-radius: 8px; margin: 1rem 0; }
-        footer { text-align: center; padding: 2rem 0; color: #999; font-size: 0.85rem; }
+        .back {
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #0f9d58;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.4rem 0.8rem;
+            background: #26262a;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+        .back:hover { background: #30303a; }
+        .article {
+            background: #26262a;
+            border-radius: 14px;
+            padding: 2rem 2.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            border-left: 4px solid #0f9d58;
+        }
+        .article h1 { font-size: 2rem; margin-bottom: 0.3rem; color: #fff; }
+        .article .meta { color: #888; font-size: 0.9rem; margin-bottom: 1.5rem; padding-bottom: 1rem; border-bottom: 1px solid #333; }
+        .article h2 { margin: 1.5rem 0 0.8rem; font-size: 1.3rem; color: #0f9d58; }
+        .article p { margin-bottom: 1rem; color: #d0d0dd; }
+        .article ul { margin: 0.8rem 0 0.8rem 1.5rem; color: #d0d0dd; }
+        .article li { margin-bottom: 0.3rem; }
+        .sources { margin-top: 2rem; padding: 1.2rem; background: #30303a; border-radius: 10px; }
+        .sources h4 { font-size: 0.9rem; color: #0f9d58; margin-bottom: 0.8rem; }
+        .source-item { font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid #333; color: #aaa; }
+        .source-item:last-child { border-bottom: none; }
+        .source-item a { color: #0f9d58; text-decoration: none; }
+        .source-item a:hover { text-decoration: underline; }
+        .source-item .citation { color: #888; font-size: 0.8rem; margin-top: 0.2rem; }
+        .media-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 8px;
+            color: #64b5f6;
+            text-decoration: none;
+            font-size: 0.85rem;
+            background: #1a2a3a;
+            transition: background 0.2s;
+            margin: 0.3rem 0;
+        }
+        .media-link:hover { background: #2a3a4a; }
+        img { max-width: 100%; border-radius: 10px; margin: 1rem 0; box-shadow: 0 2px 12px rgba(0,0,0,0.3); }
+        .pdf-download {
+            text-align: center; padding: 1.5rem;
+            background: #26262a; border-radius: 14px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3); margin-top: 2rem;
+            border-left: 4px solid #0f9d58;
+        }
+        .pdf-download a {
+            display: inline-block; padding: 0.8rem 2rem;
+            background: #0f9d58; color: #fff; border-radius: 10px;
+            text-decoration: none; font-weight: 600; transition: all 0.2s;
+        }
+        .pdf-download a:hover { background: #0d7a44; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15,157,88,0.4); }
+        footer { text-align: center; padding: 2rem 0; color: #666; font-size: 0.85rem; margin-top: 2rem; border-top: 1px solid #333; }
     </style>
 </head>
 <body>
@@ -38,11 +87,10 @@
 
             <p><strong>Willkommen zur ersten Ausgabe von Bit & Byte!</strong></p>
 
-            <p>Dies ist eine Beispielausgabe, die dir zeigt, wie die wöchentliche Tech-Zeitung aussehen wird. Ab dem 30. August 2026 erscheint hier jeden Samstag um 8:00 Uhr eine neue Ausgabe mit aktuellen Themen aus der Welt der Technologie.</p>
+            <p>Dies ist eine Beispielausgabe, die dir zeigt, wie die wöchentliche Tech-Zeitung im neuen <strong>Kachel-Design</strong> aussehen wird. Ab dem 29. August 2026 erscheint hier jeden Samstag um 8:00 Uhr eine neue Ausgabe.</p>
 
             <h2>📰 Was dich erwartet</h2>
-            <p>Jede Ausgabe enthält Artikel zu folgenden Kategorien (je nach Aktualität):</p>
-            <ul style="margin: 1rem 0 1rem 1.5rem; color: #444;">
+            <ul>
                 <li><strong>Neue KI-Modelle</strong> – Aktuelle LLMs und KI-News</li>
                 <li><strong>GitHub-Projekt der Woche</strong> – Ein interessantes Open-Source-Projekt</li>
                 <li><strong>Distro des Monats</strong> – Linux-Distribution im Fokus</li>
@@ -54,21 +102,19 @@
             </ul>
 
             <h2>🎯 Unser Versprechen</h2>
-            <p><strong>Keine Fake News.</strong> Jeder Artikel wird sorgfältig recherchiert. Alle Quellen sind auf dieser Seite transparent aufgelistet – im PDF selbst stehen keine Quellen, nur hier im Web.<br>
-            Wo immer möglich, verlinken wir relevante Videos und Podcastfolgen (z. B. von HoodInformatik).</p>
+            <p><strong>Keine Fake News.</strong> Jeder Artikel wird sorgfältig recherchiert. Alle Quellen sind auf dieser Seite transparent aufgelistet – im PDF selbst stehen keine Quellen.</p>
+
+            <p>🎥 <a href="https://youtube.com/@HoodInformatik" class="media-link" target="_blank">HoodInformatik auf YouTube</a></p>
 
             <h2>🖼️ Beispielbild</h2>
             <img src="https://www.tagesschau.de/multimedia/bilder/computer-ki-138~_v-gross16x9.jpg" alt="KI-Illustration (Symbolbild)">
-            <p style="font-size: 0.85rem; color: #888;">Symbolbild: KI-Darstellung (Quelle: tagesschau.de)</p>
-
-            <h2>🔗 Verlinkte Medien</h2>
-            <p>🎥 <a href="https://youtube.com/@HoodInformatik" class="media-link" target="_blank">HoodInformatik auf YouTube</a></p>
+            <p style="font-size: 0.85rem; color: #666;">Symbolbild: KI-Darstellung (Quelle: tagesschau.de)</p>
 
             <div class="sources">
-                <h3>📚 Quellen dieser Ausgabe</h3>
+                <h4>📚 Quellen dieser Ausgabe</h4>
                 <div class="source-item">
                     <a href="https://www.tagesschau.de/" target="_blank">tagesschau.de</a>
-                    <div class="citation">Allgemeine Nachrichtenquelle – Beispiel-Nennung für die erste Ausgabe</div>
+                    <div class="citation">Allgemeine Nachrichtenquelle – Beispiel-Nennung</div>
                 </div>
                 <div class="source-item">
                     <a href="https://github.com/BobBobinson007/bit-und-byte" target="_blank">GitHub: BobBobinson007/bit-und-byte</a>
@@ -77,8 +123,12 @@
             </div>
         </div>
 
+        <div class="pdf-download">
+            <a href="../../pdf/Bit_Byte_Woche_Hello_World.pdf" target="_blank">📄 PDF dieser Ausgabe herunterladen</a>
+        </div>
+
         <footer>
-            <a href="../../pdf/Bit_Byte_Woche_Hello_World.pdf" style="color:#00c853;text-decoration:none;font-weight:600;">📄 PDF dieser Ausgabe herunterladen</a>
+            Bit & Byte – Generiert mit ❤️ durch OpenClaw Automation
         </footer>
     </div>
 </body>

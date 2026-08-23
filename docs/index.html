@@ -8,123 +8,175 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #f5f5f5;
-            color: #1a1a1a;
+            background: #1c1c1e;
+            color: #f0f0f5;
             line-height: 1.6;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem; }
+        .container { max-width: 960px; margin: 0 auto; padding: 2rem; }
+
+        /* ── HEADER ── */
         header {
             text-align: center;
             padding: 3rem 0 2rem;
-            border-bottom: 3px solid #00c853;
             margin-bottom: 2rem;
+            border-bottom: 2px solid #0f9d58;
+            position: relative;
         }
-        h1 { font-size: 2.8rem; letter-spacing: -1px; color: #1a1a1a; }
-        h1 span { color: #00c853; }
-        .subtitle { color: #666; font-size: 1.1rem; margin-top: 0.5rem; }
-        .latest {
-            background: #fff;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-            margin-bottom: 2rem;
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0f9d58, #0a6e3c, #0f9d58);
         }
-        .latest h2 { color: #00c853; margin-bottom: 0.5rem; font-size: 1.5rem; }
-        .latest .date { color: #999; font-size: 0.9rem; }
-        .latest .actions { margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap; }
-        .btn {
-            display: inline-block;
-            padding: 0.6rem 1.4rem;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            transition: all 0.2s;
-        }
-        .btn-primary { background: #00c853; color: #fff; }
-        .btn-primary:hover { background: #00a844; transform: translateY(-1px); }
-        .btn-secondary { background: #e0e0e0; color: #333; }
-        .btn-secondary:hover { background: #ccc; }
-        .archive {
-            background: #fff;
-            border-radius: 12px;
-            padding: 2rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-        }
-        .archive h2 { margin-bottom: 1rem; font-size: 1.3rem; }
-        .archive-item {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #eee;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .archive-item:last-child { border-bottom: none; }
-        .archive-item .title { font-weight: 500; }
-        .archive-item .date { color: #999; font-size: 0.85rem; }
-        .archive-item .links a { color: #00c853; text-decoration: none; margin-left: 0.8rem; font-size: 0.85rem; }
-        .archive-item .links a:hover { text-decoration: underline; }
-        footer {
-            text-align: center;
-            padding: 2rem 0;
-            color: #999;
-            font-size: 0.85rem;
-            margin-top: 2rem;
-            border-top: 1px solid #ddd;
-        }
+        h1 { font-size: 3rem; letter-spacing: -2px; color: #fff; font-weight: 800; }
+        h1 span { color: #0f9d58; }
+        .subtitle { color: #a0a0aa; font-size: 1.05rem; margin-top: 0.5rem; }
+
+        /* ── KATEGORIE-KACHELN ── */
         .categories {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 0.8rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 0.7rem;
             margin: 1.5rem 0 2rem;
         }
         .category-tag {
-            background: #fff;
-            padding: 0.5rem 1rem;
-            border-radius: 8px;
-            border-left: 3px solid #00c853;
+            background: #26262a;
+            padding: 0.7rem 1rem;
+            border-radius: 10px;
             font-size: 0.9rem;
-            color: #555;
+            color: #c0c0cc;
+            border-left: 4px solid #0f9d58;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background 0.2s;
         }
+        .category-tag:hover { background: #30303a; }
+
+        /* ── AKTUELLE AUSGABE (Kachel) ── */
+        .latest {
+            background: #26262a;
+            border-radius: 14px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+            margin-bottom: 2.5rem;
+            border-left: 4px solid #0f9d58;
+        }
+        .latest h2 { color: #0f9d58; margin-bottom: 0.5rem; font-size: 1.5rem; }
+        .latest .date { color: #888; font-size: 0.9rem; }
+        .latest .actions { margin-top: 1.5rem; display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.6rem;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+        .btn-primary { background: #0f9d58; color: #fff; }
+        .btn-primary:hover { background: #0d7a44; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(15,157,88,0.4); }
+        .btn-secondary { background: #30303a; color: #d0d0dd; }
+        .btn-secondary:hover { background: #40404a; transform: translateY(-2px); }
+        .btn-outline { background: transparent; color: #0f9d58; border: 2px solid #0f9d58; }
+        .btn-outline:hover { background: #0f9d58; color: #fff; }
+
+        /* ── ARCHIV ── */
+        .archive {
+            background: #26262a;
+            border-radius: 14px;
+            padding: 2rem;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+        .archive h2 { margin-bottom: 1.2rem; font-size: 1.3rem; color: #fff; }
+        .archive-item {
+            padding: 0.9rem 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        .archive-item:last-child { border-bottom: none; }
+        .archive-item .title { font-weight: 500; color: #e0e0e5; }
+        .archive-item .date { color: #888; font-size: 0.85rem; }
+        .archive-item .links { display: flex; gap: 0.5rem; }
+        .archive-item .links a {
+            color: #0f9d58;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.3rem 0.8rem;
+            background: #30303a;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+        .archive-item .links a:hover { background: #40404a; text-decoration: none; }
+
+        /* ── EMPTY STATE ── */
         .empty-state {
             text-align: center;
-            padding: 3rem;
-            color: #999;
+            padding: 2rem 1rem;
+            color: #888;
         }
-        .empty-state .big { font-size: 3rem; margin-bottom: 1rem; }
+        .empty-state .big { font-size: 3.5rem; margin-bottom: 1rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 2rem;
+            border-top: 1px solid #333;
+        }
+        footer a { color: #0f9d58; text-decoration: none; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .container { padding: 1rem; }
+            h1 { font-size: 2rem; }
+            .categories { grid-template-columns: 1fr; }
+            .latest { padding: 1.5rem; }
+            .archive-item { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>⟨Bit & Byte⟩</h1>
+            <h1>⟨<span>Bit & Byte</span>⟩</h1>
             <p class="subtitle">Deine wöchentliche Dosis Nerdy-Wissen – jeden Samstag um 8:00 Uhr</p>
         </header>
 
         <div class="categories">
-            <span class="category-tag">🤖 Neue KI-Modelle</span>
-            <span class="category-tag">⭐ GitHub-Projekt der Woche</span>
-            <span class="category-tag">🐧 Distro des Monats</span>
-            <span class="category-tag">🚨 Hacks & Datenleaks</span>
-            <span class="category-tag">🔒 Sicherheitslücke einfach erklärt</span>
-            <span class="category-tag">❓ Wie funktioniert eigentlich…?</span>
-            <span class="category-tag">🐳 Docker & Container</span>
-            <span class="category-tag">📱 iOS-Updates</span>
-            <span class="category-tag">👻 Internet-Mythen</span>
-            <span class="category-tag">🏢 Technikmessen</span>
-            <span class="category-tag">🌌 Neues aus dem Weltall</span>
-            <span class="category-tag">📊 Neue Studie</span>
-            <span class="category-tag">🔬 Deep Dive</span>
+            <span class="category-tag" style="border-left-color:#0078c8;">🤖 Neue KI-Modelle</span>
+            <span class="category-tag" style="border-left-color:#c87800;">⭐ GitHub-Projekt der Woche</span>
+            <span class="category-tag" style="border-left-color:#c85000;">🐧 Distro des Monats</span>
+            <span class="category-tag" style="border-left-color:#c81e1e;">🚨 Hacks & Datenleaks</span>
+            <span class="category-tag" style="border-left-color:#009696;">🔒 Sicherheitslücke einfach erklärt</span>
+            <span class="category-tag" style="border-left-color:#7850c8;">❓ Wie funktioniert eigentlich…?</span>
+            <span class="category-tag" style="border-left-color:#0096c8;">🐳 Docker & Container</span>
+            <span class="category-tag" style="border-left-color:#646464;">📱 iOS-Updates</span>
+            <span class="category-tag" style="border-left-color:#c86400;">👻 Internet-Mythen</span>
+            <span class="category-tag" style="border-left-color:#960096;">🏢 Technikmessen</span>
+            <span class="category-tag" style="border-left-color:#0050b4;">🌌 Neues aus dem Weltall</span>
+            <span class="category-tag" style="border-left-color:#b43c78;">📊 Neue Studie</span>
+            <span class="category-tag" style="border-left-color:#0f9d58;">🔬 Deep Dive</span>
         </div>
 
         <div class="latest" id="latest-issue">
             <div class="empty-state">
                 <div class="big">📰</div>
-                <h2>Willkommen bei Bit & Byte!</h2>
-                <p>Die erste Ausgabe erscheint am Samstag, 30. August 2026 um 8:00 Uhr.</p>
-                <p style="margin-top:0.5rem;font-size:0.9rem;">Bis dahin findest du hier eine Beispiel-PDF zum Anschauen.</p>
+                <h2 style="color:#fff;">Willkommen bei Bit & Byte!</h2>
+                <p>Die erste Ausgabe erscheint am <strong>Samstag, 29. August 2026</strong> um 8:00 Uhr.</p>
+                <p style="margin-top:0.5rem;font-size:0.9rem;color:#888;">Bis dahin findest du hier eine Beispiel-PDF im neuen Kachel-Design.</p>
                 <div class="actions" style="justify-content:center;margin-top:1.5rem;">
-                    <a href="pdf/Bit_Byte_Woche_Hello_World.pdf" class="btn btn-primary">📥 Beispiel-PDF herunterladen</a>
+                    <a href="pdf/Bit_Byte_Woche_Hello_World.pdf" class="btn btn-primary">📥 Beispiel-PDF (Kachel-Design)</a>
                     <a href="/issues/hello-world/" class="btn btn-secondary">📖 Beispielartikel mit Quellen</a>
                 </div>
             </div>
@@ -134,8 +186,8 @@
             <h2>📚 Alle Ausgaben</h2>
             <div class="archive-item">
                 <div>
-                    <span class="title">Hello World – Beispielausgabe</span>
-                    <br><span class="date">August 2026</span>
+                    <span class="title">⟨Hello World⟩ – Beispielausgabe</span>
+                    <br><span class="date">August 2026 · Kachel-Design</span>
                 </div>
                 <div class="links">
                     <a href="pdf/Bit_Byte_Woche_Hello_World.pdf">📄 PDF</a>
@@ -146,7 +198,7 @@
 
         <footer>
             Bit & Byte – Generiert mit ❤️ durch OpenClaw Automation<br>
-            Quellen auf GitHub → <a href="https://github.com/BobBobinson007/bit-und-byte" style="color:#00c853;">BobBobinson007/bit-und-byte</a>
+            Quellen auf GitHub → <a href="https://github.com/BobBobinson007/bit-und-byte">BobBobinson007/bit-und-byte</a>
         </footer>
     </div>
 </body>

@@ -91,6 +91,7 @@ CONFIG = {
     'repo_url': 'https://github.com/BobBobinson007/bit-und-byte.git',
     'repo_branch': 'main',
     'pdf_dir': BASE_DIR / 'docs' / 'pdf',
+    'design': 'kachel',  # Kachel-Design (Cards, hoher Kontrast, dunkel)
     'docs_dir': BASE_DIR / 'docs',
     'articles_dir': BASE_DIR / 'articles',
     'author': 'Bit & Byte Automation',
