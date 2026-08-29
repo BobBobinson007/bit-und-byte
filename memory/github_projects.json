@@ -1,5 +1,8 @@
-{
-  "featured_projects": [],
-  "last_updated": null,
-  "notes": "GitHub Projekt der Woche - bereits vorgestellte Projekte"
-}
+[
+  {
+    "project": "msitarzewski/agency-agents",
+    "issue_id": "001",
+    "url": "https://github.com/msitarzewski/agency-agents",
+    "featured_at": "29.08.2026"
+  }
+]

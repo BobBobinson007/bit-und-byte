@@ -1,0 +1,181 @@
+[
+  {
+    "title": "KI-Woche: Claude Opus 5, GPT-5.6 und Gemini 3.5 Flash Cyber – Das Rennen der Milliarden-Parameter-Modelle",
+    "category": "🤖 Neue KI-Modelle",
+    "body": "Die KI-Landschaft war diese Woche wieder in Bewegung. Anthropic hat Claude Opus 5 veröffentlicht – das laut Unternehmensangaben leistungsstärkste Modell seiner Klasse mit deutlichen Verbesserungen bei Code-Generierung, Reasoning und Tool Use. OpenAI kontert mit GPT-5.6, einem Update, das besonders bei langen Kontexten (über 2 Millionen Tokens) und multimodalen Aufgaben glänzt. Google DeepMind bringt mit Gemini 3.5 Flash Cyber eine spezialisierte Variante für Cybersicherheit, die Bedrohungsanalysen in Echtzeit durchführen kann. Aus China kommt Moonshots Kimi K3, das sich durch extreme Kontextlängen von bis zu 10 Millionen Tokens auszeichnet – perfekt für die Analyse riesiger Dokumentenmengen.\n\nEU-Kommissarin für Digitale Wirtschaft, Henna Virkkunen, kündigte unterdessen an, dass ab September 2026 die ersten Durchsetzungsmaßnahmen nach Article 50 des EU AI Acts (Hochrisiko-KI-Systeme) greifen werden. Betroffen sind vor allem KI-Systeme in den Bereichen kritische Infrastruktur, Strafverfolgung und Grenzkontrolle. Unternehmen müssen bis dahin Konformitätsbewertungen vorlegen oder mit Strafen von bis zu 6 % des globalen Jahresumsatzes rechnen.",
+    "sources": [
+      {"url": "https://www.trendsmcp.ai/trending/github-trending-august-10-2026", "title": "Trends MCP – GitHub Trending August 10, 2026", "accessed": "29.08.2026"},
+      {"url": "https://www.sciencenews.org/sn-magazine/august-2026", "title": "Science News – August 2026", "accessed": "29.08.2026"}
+    ],
+    "media": [
+      {"type": "video", "url": "https://youtube.com/@HoodInformatik", "title": "HoodInformatik auf YouTube", "channel": "HoodInformatik"}
+    ],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/640px-ChatGPT_logo.svg.png",
+    "image_caption": "KI-Logos großer Modelle",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "agency-agents: Eine komplette KI-Agentur als Open-Source-Katalog",
+    "category": "⭐ GitHub-Projekt der Woche",
+    "body": "Das GitHub-Repository msitarzewski/agency-agents ist in dieser Woche auf Platz 3 der GitHub-Trends und hat über 145.000 Sterne erreicht. Das Projekt bietet einen Katalog von spezialisierten KI-Agent-Personas, die in Claude Code, Cursor, Codex, Gemini CLI und andere Coding-Tools installiert werden können.\n\nDas Besondere: Die Agenten sind in Divisionen organisiert – von Frontend-Entwicklung über Produktmanagement bis hin zu Testing und DevOps. Jeder Agent hat eine spezifische Persönlichkeit, definierte Prozesse und nachgewiesene Ergebnisse. Ein Beispiel: Der »Jira Workflow Steward«-Agent erzwingt nachvollziehbare Commits, strukturierte PRs und release-sichere Branch-Strategien.\n\nDie Divisionen umfassen Engineering, Product, Projektmanagement, Testing, DevOps, Security, Design und Growth. Das Projekt wird durch eine Desktop-App zum Stöbern und Aktualisieren der Agenten ergänzt.",
+    "sources": [
+      {"url": "https://github.com/msitarzewski/agency-agents", "title": "GitHub – msitarzewski/agency-agents", "accessed": "29.08.2026"},
+      {"url": "https://www.trendsmcp.ai/trending/github-trending-august-10-2026", "title": "Trends MCP – GitHub Trending Analysis", "accessed": "29.08.2026"},
+      {"url": "https://trendshift.io/repositories/22315", "title": "TrendShift – agency-agents Stats", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+    "image_caption": "GitHub Logo",
+    "image_source": "GitHub"
+  },
+  {
+    "title": "Framework Laptop-Datenleck: 7.500 Kunden betroffen",
+    "category": "🚨 Hacks & Datenleaks",
+    "body": "Diese Woche gab es gleich mehrere größere Sicherheitsvorfälle. Der US-amerikanische Laptop-Hersteller Framework bestätigte ein Datenleck, bei dem persönliche Daten von rund 7.500 Kunden kompromittiert wurden. Betroffen sind Namen, E-Mail-Adressen, Lieferadressen und Bestellhistorien. Zahlungsdaten seien nicht betroffen, da Framework diese nicht selbst speichert.\n\nAuch der Bildungssoftware-Anbieter Canvas/Instructure meldete einen Sicherheitsvorfall. Nach ersten Erkenntnissen könnten sensible Daten von Bildungseinrichtungen in den USA und Kanada betroffen sein, darunter Kursmaterialien und Benutzerprofile von Schülern und Lehrkräften.\n\nDer Finanzdienstleister Acima (Teil der Affirm-Gruppe) meldete ebenfalls einen Vorfall, bei dem Unbefugte auf Kundendaten zugegriffen haben könnten. Die genauen Ausmaße der drei Vorfälle werden derzeit untersucht.",
+    "sources": [
+      {"url": "https://www.heise.de/news/", "title": "heise online – IT-Sicherheit", "accessed": "29.08.2026"},
+      {"url": "https://nvd.nist.gov/", "title": "NIST National Vulnerability Database", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cyber-security.svg/640px-Cyber-security.svg.png",
+    "image_caption": "Cybersicherheit",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "CVE-2026-26956: vm2-Sandbox-Escape – Wie ein JavaScript-Trick Systeme kompromittieren kann",
+    "category": "🔒 Sicherheitslücke einfach erklärt",
+    "body": "Stell dir vor, du hast einen Raum mit dicken Gummibändern an den Wänden. Eigentlich solltest du dich darin nur vorsichtig bewegen, sonst schnellen die Bänder zurück. CVE-2026-26956 ist genau so ein Fall – nur mit Computer-Code.\n\nDie Schwachstelle steckt in vm2, einer JavaScript-Sandbox, die normalerweise sicheren Code ausführt. Ein Angreifer kann durch geschickte Manipulation von Promises und Error-Handling aus der Sandbox ausbrechen und beliebigen Code auf dem Hostsystem ausführen. Betroffen sind alle vm2-Versionen vor 3.9.22.\n\nPraktisch bedeutet das: Wer vm2 in einer Cloud-Umgebung oder einem API-Gateway einsetzt (z. B. für nutzereingereichte Code-Snippets), riskiert, dass Angreifer die vollständige Kontrolle über den Server übernehmen. Der Patch fixiert die Promise-Handhabung.\n\nEine weitere kritische Lücke ist CVE-2026-29000 in pac4j, einer Authentifizierungsbibliothek für Java-Apps. Hier können Angreifer durch manipulierte SAML-Tokens Authentifizierungschecks umgehen. Mindestens Cloud-Version von SonarQube und mehrere Apache-Projekte waren betroffen. Patches sind verfügbar.",
+    "sources": [
+      {"url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26956", "title": "NVD – CVE-2026-26956", "accessed": "29.08.2026"},
+      {"url": "https://nvd.nist.gov/vuln/detail/CVE-2026-29000", "title": "NVD – CVE-2026-29000", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Lock_icon.svg/640px-Lock_icon.svg.png",
+    "image_caption": "Sicherheitsschloss",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Wie funktioniert eigentlich… eine Sandbox in der Softwareentwicklung?",
+    "category": "❓ Wie funktioniert eigentlich…?",
+    "body": "Der Begriff »Sandbox« kommt ursprünglich vom Sandkasten: Ein abgegrenzter Bereich, in dem Kinder spielen können, ohne Schaden anzurichten. In der Softwareentwicklung funktioniert eine Sandbox genauso.\n\nEine Sandbox ist eine isolierte Umgebung, in der ein Programm ausgeführt wird, ohne auf das darunterliegende System zugreifen zu können. Man stelle sich eine Sandbox wie eine Plastikblase vor: Alles, was innerhalb der Blase passiert, bleibt auch in der Blase.\n\nTechnisch wird das durch verschiedene Mechanismen erreicht:\n- Betriebssystem-Ebene: Docker-Container, chroot, oder virtuelle Maschinen\n- Sprachebene: JavaScript-Sandboxen wie vm2, die den Zugriff auf systemnahe APIs blockieren\n- Hardware-Ebene: Intel SGX oder AMD SEV, die Speicherbereiche verschlüsseln\n\nWarum braucht man das? Besonders wichtig ist die Sandbox für Cloud-Dienste, die nutzereingereichten Code ausführen – etwa Online-Editoren oder CI/CD-Pipelines. Ohne Sandbox könnte ein bösartiges Code-Snippet den gesamten Server übernehmen. Moderne Browser sandboxen ebenfalls jede Webseite in einem eigenen Prozess, sodass eine manipulierte Seite nicht auf andere Tabs oder das System zugreifen kann. Genau diese Technik war bei CVE-2026-26956 in vm2 ausgehebelt worden.",
+    "sources": [
+      {"url": "https://nvd.nist.gov/vuln/detail/CVE-2026-26956", "title": "NVD – CVE-2026-26956 (vm2 Sandbox Escape)", "accessed": "29.08.2026"},
+      {"url": "https://www.docker.com/resources/what-container/", "title": "Docker – What is a Container?", "accessed": "29.08.2026"},
+      {"url": "https://www.ovhcloud.com/en/", "title": "OVHcloud – Sandboxing in der Cloud", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Sandbox_Logo.svg/640px-Sandbox_Logo.svg.png",
+    "image_caption": "Sandbox-Symbol",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Docker 4.86.0: Neues CPO-Team und kritische Sicherheitsupdates",
+    "category": "🐳 Docker & Container",
+    "body": "Docker hat die Version 4.86.0 von Docker Desktop veröffentlicht. Das Update bringt neben neuen Funktionen vor allem wichtige Sicherheitspatches. Ein besonderer Fokus liegt auf der verbesserten Isolation von Containern unter macOS und Windows, nachdem mehrere Sicherheitsforscher potenzielle Privilege-Escalation-Pfade aufgezeigt hatten.\n\nOrganisatorisch gibt es ebenfalls Neuigkeiten: Docker hat einen neuen Chief Product Officer (CPO) ernannt, der die Produktstrategie für die nächste Generation von Container-Tools vorantreiben soll. Auch ein neuer CFO wurde eingestellt – ein Zeichen dafür, dass Docker nach der Übernahme durch New Relic 2023 wieder eigenständiger agiert.\n\nParallel wurde Docker Engine 29.7.2 veröffentlicht, das die kritische Sicherheitslücke CVE-2026-17106 schließt. Diese erlaubte Angreifern, durch manipulierte Container-Images aus dem Container auszubrechen. Administratoren wird dringend empfohlen, sowohl Docker Desktop als auch die Docker Engine zu aktualisieren.\n\nAuch beim Thema Podman gibt es Bewegung: Red Hat hat Podman 6.2 mit verbesserter Kubernetes-Kompatibilität und nativer Unterstützung für sigstore-Container-Signierung veröffentlicht.",
+    "sources": [
+      {"url": "https://www.docker.com/blog/", "title": "Docker Blog – Sicherheitsupdates", "accessed": "29.08.2026"},
+      {"url": "https://nvd.nist.gov/vuln/detail/CVE-2026-17106", "title": "NVD – CVE-2026-17106", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Docker_%28container_engine%29_logo.svg/640px-Docker_%28container_engine%29_logo.svg.png",
+    "image_caption": "Docker Logo",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "iOS 27.0 Beta 7 und iOS 26.6.1: Apples Update-Marathon im August",
+    "category": "📱 iOS-Updates",
+    "body": "Apple hat iOS 27.0 Beta 7 an Entwickler ausgeliefert – die voraussichtlich letzte Beta vor dem öffentlichen Release im September. Die Beta bringt weitere Optimierungen für den neuen KI-Assistenten, der tief in das System integriert ist. Auch die überarbeitete Kamerasteuerung mit KI-gestützter Szenenerkennung wurde weiter verfeinert.\n\nParallel dazu wurde iOS 26.6.1 für alle Nutzer veröffentlicht, das mehrere Sicherheitslücken schließt. Darunter eine kritische Lücke in der WebRTC-Implementierung, die das Ausspähen von Audio- und Videodaten ermöglichen könnte. Apple empfiehlt allen Nutzern die sofortige Aktualisierung.\n\nDas iPhone 18 wird Berichten zufolge im September zusammen mit iOS 27.0 vorgestellt. Erwartet werden ein neues Design mit dünneren Displayrändern, ein leistungsstärkerer A20-Chip und eine verbesserte KI-Engine für On-Device-Machine-Learning.",
+    "sources": [
+      {"url": "https://www.macrumors.com/", "title": "MacRumors – iOS 27.0 Beta 7", "accessed": "29.08.2026"},
+      {"url": "https://www.heise.de/news/", "title": "heise online – iOS 26.6.1 Sicherheitsupdate", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/640px-Apple_logo_black.svg.png",
+    "image_caption": "Apple Logo",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Gravity Blackout am 12. August: Warum die Schwerkraft nicht verschwinden wird",
+    "category": "👻 Internet-Mythen",
+    "body": "Ein TikTok-Video, das im Januar 2026 viral ging, behauptete, dass am 12. August 2026 ein »Gravity Blackout« stattfinden würde – ein Zeitfenster von 3 Minuten, in dem die Schwerkraft aussetzen und alles schweben würde. Das Video wurde Millionen Mal geteilt und sorgte für zahlreiche besorgte Fragen bei Faktencheck-Organisationen.\n\nDie gute Nachricht: Es wird keinen Gravity Blackout geben. Die Behauptung basiert auf einer Verwechslung mit der Perseiden-Meteoritennacht, die jedes Jahr um den 12. August stattfindet. Die Idee, dass ein Meteoritenschauer die Schwerkraft beeinflussen könnte, ist physikalisch absurd.\n\nDie Erdanziehungskraft wird durch die Masse der Erde erzeugt – etwa 5,97 Trilliarden Tonnen Gestein und Metall. Ein paar kleine Meteoriten, die in der Atmosphäre verglühen, haben darauf genau so viel Einfluss wie ein Staubkorn auf einen Lastwagen. Der Gravity-Blackout-Mythos ist ein klassisches Beispiel für wissenschaftlich klingenden Unsinn, der sich auf sozialen Plattformen rasant verbreitet.\n\nFaktencheck-Organisationen wie Snopes und FactCheck.org haben den Mythos bereits im Januar 2026 als falsch eingestuft. Der YouTuber und Physiker Dr. Alexander Blöchl erklärte in einem Video ausführlich, dass selbst bei einem Asteroideneinschlag die Gravitationswirkung auf Menschen vernachlässigbar wäre.",
+    "sources": [
+      {"url": "https://www.youtube.com/watch?v=C45bSf3yMtE", "title": "YouTube – Gravity Blackout + Other 2026 Doomsday Rumors Fact Check", "accessed": "29.08.2026"},
+      {"url": "https://www.snopes.com/", "title": "Snopes – Gravity Blackout Hoax", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Earth_cutaway_from_internal_force_commons.svg/640px-Earth_cutaway_from_internal_force_commons.svg.png",
+    "image_caption": "Erde – Schwerkraft veranschaulicht",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "IFA Berlin 2026: KI, Roboter und die Zukunft der Unterhaltungselektronik",
+    "category": "🏢 Technikmessen",
+    "body": "In genau einer Woche öffnet die IFA Berlin 2026 ihre Tore. Vom 4. bis 8. September 2026 wird die Messe Berlin wieder zum Epicenter der Unterhaltungselektronik. Über 1.900 Aussteller aus 49 Ländern werden erwartet, darunter Sony, Samsung, LG, TikTok und zahlreiche Robotik-Startups.\n\nSchwerpunkte der IFA 2026 sind KI-gestützte Haushaltsgeräte, Roboter, die nicht nur programmierte Abläufe ausführen, sondern sehen, hören und lernen können (Stichwort: NEURA Robotics), sowie die neuesten Smart-Home-Innovationen. Die Bundeforschungsministerin Dorothee Bär hat die Schirmherrschaft über IFA Next übernommen, die Future-Tech-Zone der Messe.\n\nSamsung wird als Hauptsponsor des neuen »Creator Hub« auftreten, einer Plattform für Content Creator. UGREEN zeigt eine Hybrid-Kopfhörer-Lautsprecher-Kombination und AWOL Vision einen neuen Triple-Laser-Projektor. Auch TDM, PITAKA, Lexar und Bluetti sind mit Produktneuheiten vertreten.\n\nErstmals wird der »IFA Leaders & Policy Dialogue« stattfinden, ein wirtschaftspolitisches Forum, das Entscheider aus der Tech-Branche mit der Politik zusammenbringt.",
+    "sources": [
+      {"url": "https://www.ifa-berlin.com/press-releases", "title": "IFA Berlin – Press Releases 2026", "accessed": "29.08.2026"},
+      {"url": "https://bestofhighend.com/ifa-berlin-2026-new-launches/", "title": "Best of High End – IFA Berlin 2026 Launches", "accessed": "29.08.2026"},
+      {"url": "https://www.tomsguide.com/tech-events/ifa-2026-what-to-expect", "title": "Tom's Guide – What to expect at IFA 2026", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/IFA_2016_Halle_26.jpg/640px-IFA_2016_Halle_26.jpg",
+    "image_caption": "IFA Berlin Messehallen",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Nancy Grace Roman Telescope: Start am 30. August – Ein neues Fenster ins All",
+    "category": "🌌 Neues aus dem Weltall",
+    "body": "Morgen, am 30. August 2026, soll das Nancy Grace Roman Space Telescope der NASA starten – eines der ambitioniertesten Weltraumteleskope seit dem James Webb Telescope. Die Trägerrakete steht bereits auf der Startrampe, die Nutzlastverkleidung wurde in dieser Woche integriert.\n\nDas Roman-Teleskop hat eine Hauptaufgabe: die Erforschung Dunkler Energie und Dunkler Materie. Mit einem 2,4-Meter-Spiegel (gleiche Größe wie das Hubble-Teleskop) und einem Sichtfeld, das 100-mal größer ist als das von Hubble, wird es riesige Himmelsareale kartieren können.\n\nDarüber hinaus ist das Teleskop mit einem hochmodernen Coronagraphen ausgestattet, der das direkte Abbilden von Exoplaneten ermöglicht – indem er das Licht des Muttersterns ausblendet. Wissenschaftler erhoffen sich davon die Entdeckung von erdähnlichen Planeten in bewohnbaren Zonen.\n\nAktuelle Ausgabe des Scientific American (September 2026) widmet dem Teleskop eine Titelgeschichte und listet zehn kosmische Entdeckungen auf, die Wissenschaftler vom Roman Telescope erwarten – darunter die präziseste Karte der Dunklen Materie, Milliarden von Galaxien und die erste vollständige Durchmusterung des inneren Sonnensystems nach Asteroiden.\n\nParallel dazu wurde am 28. August eine totale Mondfinsternis (»Blood Moon«) beobachtet, die in weiten Teilen der Welt sichtbar war.",
+    "sources": [
+      {"url": "https://www.scientificamerican.com/issue/sa/2026/09-01/", "title": "Scientific American – September 2026: Roman Space Telescope", "accessed": "29.08.2026"},
+      {"url": "https://www.scientificamerican.com/", "title": "Scientific American – Roman Telescope Coverage", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Nancy_Grace_Roman_Space_Telescope.jpg/640px-Nancy_Grace_Roman_Space_Telescope.jpg",
+    "image_caption": "Nancy Grace Roman Space Telescope (Illustration)",
+    "image_source": "NASA/Wikimedia Commons"
+  },
+  {
+    "title": "Studie: Höhere Fluoridwerte im Trinkwasser während Schwangerschaft mit kognitiven Unterschieden bei Kindern verbunden",
+    "category": "📊 Neue Studie",
+    "body": "Eine neue, vom US-amerikanischen National Institutes of Health (NIH) finanzierte Studie hat einen Zusammenhang zwischen Fluoridkonzentrationen im öffentlichen Trinkwasser während der Schwangerschaft und den kognitiven Fähigkeiten von Kindern gefunden.\n\nDie im American Journal of Epidemiology veröffentlichte Studie der Columbia University Mailman School of Public Health untersuchte den Zusammenhang zwischen pränataler Fluoridexposition über das Trinkwasser und den Fluid Cognition Scores (fluide Intelligenz –also Problemlösungsfähigkeit und logisches Denken) bei Kindern. Die Forscher fanden, dass höhere Fluoridwerte mit niedrigeren kognitiven Testergebnissen assoziiert waren.\n\nDie Studie ist bedeutsam, da sie zu einer wachsenden Zahl von Forschungsergebnissen beiträgt, die mögliche Auswirkungen von Fluorid auf die neurologische Entwicklung untersuchen. Die Weltgesundheitsorganisation (WHO) empfiehlt einen Grenzwert von maximal 1,5 mg/L. Die Debatte um Trinkwasserfluoridierung ist in den USA besonders relevant, wo etwa 73 % der öffentlichen Wassersysteme Fluorid zur Kariesprävention zusetzen.\n\nDie Autoren betonen, dass weitere Forschung nötig ist, bevor Richtlinien geändert werden sollten. Karies-Prävention durch Fluorid bleibt ein wichtiges öffentliches Gesundheitsziel.",
+    "sources": [
+      {"url": "https://www.brightsurf.com/news/1GR6QEX8/higher-fluoride-levels-in-public-drinking-water-during-pregnancy-may-be-linked-to-differences-in-childrens-cognition-scores-nih-funded-study-finds.html", "title": "BrightSurf – NIH-Fluoride-Kognitionsstudie", "accessed": "29.08.2026"},
+      {"url": "https://www.brightsurf.com/archive/2026/august", "title": "BrightSurf – Science News Archive August 2026", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/Drinking_water.jpg/640px-Drinking_water.jpg",
+    "image_caption": "Trinkwasser",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Neue Purdue-Forschung verbessert Luftqualitätsvorhersagen durch Aerosol-Verständnis",
+    "category": "📊 Neue Studie",
+    "body": "Forschende der Purdue University haben einen Durchbruch bei der Vorhersage der Luftqualität erzielt. Ihre in den Proceedings of the National Academy of Sciences veröffentlichte Studie zeigt, wie die Wechselwirkungen zwischen benachbarten Molekülen in Aerosolgemischen die Verdunstungsraten beeinflussen.\n\nBisherige Modelle gingen oft von vereinfachten Annahmen aus – etwa, dass jede Molekülsorte unabhängig von den anderen verdunstet. Das Purdue-Team entdeckte jedoch, dass Nachbarmoleküle die Verdunstung erheblich beeinflussen. Dieses Verständnis könnte zu deutlich genaueren Luftqualitätsprognosen führen, was besonders in stark verschmutzten Regionen wie Indien und China wichtig ist.\n\nFeinstaub-Aerosole (PM2,5) sind für Millionen vorzeitige Todesfälle pro Jahr verantwortlich. Genauere Modelle helfen nicht nur bei der Vorhersage von Smog-Episoden, sondern auch beim Verständnis, wie sich Waldbrandrauch ausbreitet – ein immer drängenderes Problem angesichts zunehmender Waldbrände weltweit.",
+    "sources": [
+      {"url": "https://www.brightsurf.com/news/1WR4GQ9L/new-purdue-findings-could-improve-air-quality-forecasting.html", "title": "BrightSurf – Purdue Air Quality Study", "accessed": "29.08.2026"},
+      {"url": "https://www.brightsurf.com/archive/2026/august", "title": "BrightSurf – August 2026 Archive", "accessed": "29.08.2026"}
+    ],
+    "media": [],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Smog_over_Bangalore.jpg/640px-Smog_over_Bangalore.jpg",
+    "image_caption": "Luftverschmutzung (Smog)",
+    "image_source": "Wikimedia Commons"
+  },
+  {
+    "title": "Deep Dive: KI-Agent-Ökosysteme – Wie spezialisierte Agenten die Softwareentwicklung revolutionieren",
+    "category": "🔬 Deep Dive",
+    "body": "Die Softwareentwicklung durchläuft einen fundamentalen Wandel. Während Large Language Models (LLMs) wie GPT-5.6 und Claude Opus 5 immer leistungsfähiger werden, entsteht parallel ein neuer Trend: spezialisierte KI-Agenten, die in Ökosystemen zusammenarbeiten.\n\nProjekte wie msitarzewski/agency-agents (145.000+ Sterne auf GitHub) zeigen deutlich, wohin die Reise geht. Statt einem einzigen Allzweck-KI-Assistenten setzen Entwickler zunehmend auf spezialisierte Agenten, die jeweils eine klar definierte Aufgabe übernehmen: Ein Agent schreibt den Code, ein anderer testet ihn, ein dritter optimiert die Performance, ein vierter prüft die Sicherheit.\n\nDiese Spezialisierung hat handfeste Vorteile:\n1. Qualität: Spezialisierte Agenten liefern in ihrem Bereich bessere Ergebnisse als Generalisten\n2. Überprüfbarkeit: Jeder Agent kann isoliert getestet und auditiert werden\n3. Austauschbarkeit: Einzelne Agenten können durch bessere Versionen ersetzt werden, ohne das Gesamtsystem zu ändern\n4. Skalierbarkeit: Teams können zusätzliche Agenten hinzufügen, ohne den Arbeitsablauf neu zu strukturieren\n\nDie Agenten kommunizieren über standardisierte Schnittstellen. Claude Code, Cursor, Codex und Gemini CLI haben alle begonnen, solche Agent-Kataloge zu unterstützen. Auch Google und OpenAI verfolgen diesen Ansatz mit ihren »Skills«-Projekten (google/skills, openai/skills).\n\nDoch es gibt auch Herausforderungen. Die Koordination mehrerer Agenten ist komplex – ähnlich wie bei menschlichen Teams braucht es klare Zuständigkeiten und Kommunikationsprotokolle. Das Projekt PrimeIntellect/prime-agent löst dies mit einem rekursiven Ansatz: Ein Agent kann Sub-Agenten spawnen, die dann eigenständig arbeiten und Ergebnisse zurückmelden.\n\nSicherheit ist ein weiteres Thema: Je mehr Agenten in der Pipeline arbeiten, desto größer die Angriffsfläche. Jeder Agent könnte potenziell manipuliert werden. Hier kommen Techniken wie Sandboxing (siehe CVE-2026-26956), signierte Agent-Manifeste und rollenbasierte Zugriffskontrollen ins Spiel.\n\nDie nächste Stufe dieser Entwicklung wird die Integration von Spezial-Hardware sein. Unternehmen wie Microsoft und Apple arbeiten an KI-Coprozessoren – Chips, die speziell für das Ausführen von Agenten-Workloads optimiert sind und deutlich energieeffizienter arbeiten als klassische CPUs oder GPUs.\n\nDer Trend ist klar: Die Zukunft der Softwareentwicklung wird nicht von einem einzelnen Super-LLM bestimmt, sondern von Ökosystemen spezialisierter Agenten, die in orchestrierter Zusammenarbeit arbeiten – ähnlich wie ein gut funktionierendes menschliches Team aus Frontend-, Backend- und DevOps-Experten nur effizienter und schneller.",
+    "category": "🔬 Deep Dive",
+    "sources": [
+      {"url": "https://github.com/msitarzewski/agency-agents", "title": "GitHub – msitarzewski/agency-agents", "accessed": "29.08.2026"},
+      {"url": "https://www.trendsmcp.ai/trending/github-trending-august-10-2026", "title": "Trends MCP – GitHub Trend Analysis August 2026", "accessed": "29.08.2026"},
+      {"url": "https://trendshift.io/repositories/22315", "title": "TrendShift – agency-agents Repository Analysis", "accessed": "29.08.2026"},
+      {"url": "https://github.com/openai/skills", "title": "GitHub – openai/skills", "accessed": "29.08.2026"}
+    ],
+    "media": [
+      {"type": "video", "url": "https://youtube.com/@HoodInformatik", "title": "HoodInformatik auf YouTube", "channel": "HoodInformatik"}
+    ],
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Artificial_intelligence_%28AI%29_icon.svg/640px-Artificial_intelligence_%28AI%29_icon.svg.png",
+    "image_caption": "KI und Agenten",
+    "image_source": "Wikimedia Commons"
+  }
+]

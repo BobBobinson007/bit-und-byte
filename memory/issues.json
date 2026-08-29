@@ -1,5 +1,9 @@
-{
-  "published_issues": [],
-  "last_issue_date": null,
-  "notes": "Alle erschienenen Ausgaben der Bit & Byte"
-}
+[
+  {
+    "issue_id": "001",
+    "issue_title": "Ausgabe 001 – 29.08.2026",
+    "issue_date": "29.08.2026",
+    "article_count": 13,
+    "pdf_filename": "Bit_Byte_Woche_001.pdf"
+  }
+]

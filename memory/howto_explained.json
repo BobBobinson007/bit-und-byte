@@ -1,5 +1,7 @@
-{
-  "explained_topics": [],
-  "last_updated": null,
-  "notes": "Bereits erklärte Themen für 'Wie funktioniert eigentlich...?'"
-}
+[
+  {
+    "topic": "Wie funktioniert eigentlich… eine Sandbox in der Softwareentwicklung?",
+    "issue_id": "001",
+    "explained_at": "29.08.2026"
+  }
+]
